@@ -49,9 +49,10 @@ function setTimer(value) {
 
 function createRandomCircle() {
     const circle = document.createElement('div');
+    const size = getRandomNumber(10, 50);
     circle.classList.add('circle')
-    circle.style.width = "16px";
-    circle.style.height = "16px";
+    circle.style.width = size;
+    circle.style.height = size;
 
     board.append(circle);
 }
