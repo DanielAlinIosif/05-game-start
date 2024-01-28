@@ -7,7 +7,7 @@ let interval = null;
 
 let time = 0;
 
-start.addEventListener('click', (event) => {
+start.addEventListener('click', (_event) => {
     screens[0].classList.add('up')
 });
 
@@ -57,7 +57,8 @@ function createRandomCircle() {
 
     circle.style.width = '${size}px';
     circle.style.height = '${size}px';
-    circle.style.top = '${y}}px';
+    circle.style.top = '${y}px';
+    circle.style.left = '${x}px';
 
     board.append(circle);
 }
