@@ -50,6 +50,8 @@ function setTimer(value) {
 function createRandomCircle() {
     const circle = document.createElement('div');
     const size = getRandomNumber(10, 50);
+    const {width, height} = board.getBoundingClientRect();
+    console.log(width);
     circle.classList.add('circle')
     circle.style.width = size;
     circle.style.height = size;
