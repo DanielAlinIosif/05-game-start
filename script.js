@@ -49,10 +49,15 @@ function setTimer(value) {
 
 function createRandomCircle() {
     const circle = document.createElement('div');
-    
-    circle.style.width = 16px;
-    circle.style.height = 16px;
+    circle.classList.add('circle')
+    circle.style.width = "16px";
+    circle.style.height = "16px";
 
+    board.append(circle);
+}
+
+function getRandomNumber(min, max) {
+    return Math.round(Math.random() * (max - min) + max);
 }
 
 // temporary
