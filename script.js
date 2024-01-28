@@ -6,9 +6,10 @@ const timer = document.querySelector('#time');
 let interval = null;
 
 let time = 0;
+let score = 0;
 
-start.addEventListener('click', (_event) => {
-    screens[0].classList.add('up')
+start.addEventListener('click', () => {
+    screens[0].classList.add('up');
 });
 
 timeList.addEventListener('click', (event) => {
@@ -19,14 +20,24 @@ timeList.addEventListener('click', (event) => {
     }  
 });
 
+board.addEventListener('click', (event) => {
+    if(event.target.classList.contains('circle')){
+        score++;
+        event.target.remove();
+        createRandomCircle();
+    }
+});
+
 function startGame() {
     interval = setInterval(decreaseTime, 1000);
     createRandomCircle();
-    setTimer(time)
+    setTimer(time);
 }
 
 function finishGame() {
-
+    clearInterval(interval);
+    board.innerHTML = '<h1>Score: <span class=primary>${score}</span></h1>';
+    timer.parentNode.innerHTML = '';
 }
 
 function decreaseTime() {
@@ -34,7 +45,7 @@ function decreaseTime() {
         finishGame();
     } else {
         --time;
-        setTimer(time)
+        setTimer(time);
     }
 }
 
@@ -67,6 +78,4 @@ function getRandomNumber(min, max) {
     return Math.round(Math.random() * (max - min) + max);
 }
 
-// temporary
-time = 10;
-startGame();
+
