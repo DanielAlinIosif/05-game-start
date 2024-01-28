@@ -7,7 +7,7 @@ let interval = null;
 
 let time = 0;
 
-start.addEventListener('click', () => {
+start.addEventListener('click', (event) => {
     screens[0].classList.add('up')
 });
 
